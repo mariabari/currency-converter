@@ -1,16 +1,21 @@
 #! /usr/bin/env node
-import inquirer from "inquirer";
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const inquirer_1 = __importDefault(require("inquirer"));
 //define the list of currencies and their exchange rates
 let exchange_rates = {
-    "USD": 1,
-    "EUR": 0.9,
-    "JPY": 0.75,
-    "CAD": 0.75,
+    "USD": 1, //base currency
+    "EUR": 0.9, //european currency(euro)
+    "JPY": 0.75, //japnese currency (yen)
+    "CAD": 0.75, //canidian dollar
     "PKR": 280
     //add more currency and their exchange rates here  
 };
 //promt the user to select currencies to convert from and to 
-let user_answer = await inquirer.prompt([
+let user_answer = await inquirer_1.default.prompt([
     {
         name: "from_currency",
         type: "list",
